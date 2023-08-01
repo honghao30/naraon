@@ -1,3 +1,4 @@
-body {
-  background-color: transparent;
-}
+@import '/assets/scss/common/_variables.scss';
+@import '/assets/scss/common/base.scss';
+
+body {background-color: lawngreen;}
