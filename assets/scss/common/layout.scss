@@ -8,12 +8,25 @@
     .login-img {
       height: 100vw;
       width: 50%;
-      background-color: yellow;
+      background: url('../assets/images/login/mark_login.svg') no-repeat;
+      background-size: cover;
     }
     .login-container {
       flex: 1;
       height:100vh;
-      background-color: red;
+      .login-inner-wrap {
+        max-width: 420px;
+      }
+
+      .btn-login {
+        width: 420px;
+        height: 60px;
+        margin: 25px 0;
+        padding: 21px 191px 20px;
+        border-radius: 5px;
+        background-color: #f69d00;
+        @include fontoption(16px,#fff,400, 19px);
+      }
     }
   }
 }
