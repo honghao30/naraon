@@ -1,32 +1,229 @@
 /* login */
+html,
+body {
+  height: 100%;
+}
+#__nuxt {
+  height: 100%;
+}
+.layout-wrap {
+  height: 100%;
+}
 .wrap {
   width: 100%;
-  height: 100vh;
-  &.login-page {
-    display: flex;
-    justify-content: space-between;
+  height: 100%;
+  display: flex;
+  &.login-page {    
+    justify-content: space-between;    
     .login-img {
-      height: 100vw;
+      height: 100%;
       width: 50%;
-      background: url('../assets/images/login/mark_login.svg') no-repeat;
-      background-size: cover;
+      position: relative;
+      background-color: rgb(255, 163, 0,0.05);      
+      // background-size: cover;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        right:0;
+        top:0;
+        width: 600px;
+        height: 500px;
+        background: url('../assets/images/login/mark_login.svg') no-repeat right top;
+        background-size: 100% auto;
+      }
+      &::after {
+        content: '';
+        display: block;
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 600px;
+        height: 500px;
+        background: url('../assets/images/login/mark_login.svg') no-repeat left bottom;
+        background-size: 100% auto;
+      }      
     }
     .login-container {
-      flex: 1;
-      height:100vh;
+      height: 100%;
+      width: 50%;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
       .login-inner-wrap {
         max-width: 420px;
+        margin:0 auto;
+        h2 {
+          @include fontoption(30px,#191919, bold,36px);
+        }
+        dl {
+          margin-top: 40px;
+          dt {
+            @include fontoption(16px,#191919,400,19px);
+          }
+          dd {
+            margin-top:5px;
+            margin-bottom:25px;
+            input {
+              width: 420px;
+              height: 49px;
+              border-radius: 5px;
+              border: solid 1px #dbdbdb;
+              background-color: #fff;
+              @include fontoption(16px,#191919,400,19px);
+              text-indent: 10px;
+            }
+          }
+        }
       }
-
+      .login-bottom {        
+        display: flex;
+        justify-content: space-between;
+        .find {
+          a {
+            @include fontoption(16px,#191919,400,19px);
+          }
+        }
+      }
       .btn-login {
         width: 420px;
         height: 60px;
-        margin: 25px 0;
-        padding: 21px 191px 20px;
+        margin: 0 0 25px 0;
         border-radius: 5px;
         background-color: #f69d00;
         @include fontoption(16px,#fff,400, 19px);
       }
+    }
+  }
+}
+.login-copyright {
+  position: absolute;
+  bottom:26px;
+  left:50%;
+  transform: translateX(-50%);
+  @include fontoption(15px,#999,400, 18px);
+}
+
+// 레이아웃
+.left-side-wrap {
+  width: 260px;
+  height: 100%;
+  margin: 0 0 1px;
+  padding: 20px 0 936px;
+  box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+  background-color: #fff;  
+  .logo {
+    padding: 20px 0 0 60px;
+  }
+  .lnb {
+    margin-top:15px;
+    li {
+      a {
+        display: block;
+        padding: 25px 60px;
+        @include fontoption(18px,#191919,400, 22px);
+        cursor: pointer;
+        &:hover {
+          background-color: rgb(246, 157, 0,0.1);
+          color:#f69d00;
+        }
+        &::before {
+          content: '';
+          display: inline-block;
+          width: 22px;
+          height: 22px;
+          vertical-align: middle;
+          margin-right: 15px;
+        }
+      }
+      &:nth-child(1) {
+        a {
+          &::before {
+            background: url('../assets/images/common/icon_home.svg') no-repeat left -2px;
+          }          
+        }
+      }
+      &:nth-child(2) {
+        a {
+          &::before {
+            background: url('../assets/images/common/icon_Booking.svg') no-repeat left -2px;
+          }          
+        }
+      }
+      &:nth-child(3) {
+        a {
+          &::before {
+            background: url('../assets/images/common/icon_my_order.svg') no-repeat left -2px;
+          }          
+        }
+      }
+      &:nth-child(4) {
+        a {
+          &::before {
+            content: '';
+            background: url('../assets/images/common/icon_Account.svg') no-repeat left -2px;
+          }          
+        }
+      }                  
+    }
+  }
+}
+// left side 
+.contents-wrap {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  flex:1;
+  .content-top {
+    height: 100px;
+    border-bottom: 1px solid #f1f1f1;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }  
+  .content {
+    display: flex;
+    flex:1;
+    background: url('../assets/images/common/bg_mark.png') no-repeat 70% bottom;
+  }
+  .footer-info {
+    border-top: solid 1px #f1f1f1;
+    height: 117px;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .footer-util-menu {
+      display: flex;
+      justify-content: center;
+      align-items: center;      
+      li {
+        position: relative;
+        padding: 0 10px;
+        &::after {
+          content: '';
+          position: absolute;
+          display: block;
+          width:3px;
+          height:3px;
+          background-color: #000;
+          right:0;
+          top:50%;
+          transform: translateY(-50%);
+        }
+        a {
+          @include fontoption(18px, #191919, bold, 21px);
+        }
+      }
+    }
+    .copy {
+      margin-top: 10px;
+      @include fontoption(14px,#ccc,400, 16px);
     }
   }
 }

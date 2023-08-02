@@ -86,3 +86,26 @@ body {
         border-radius: 6px;
     }
 }
+
+// checkbox
+.checkbox {
+    input[type="checkbox"]{
+        display: none;
+      }
+      &.remember {
+        input[type="checkbox"] + label::before{
+            content:'';            
+            display: inline-block;
+            width: 18px;
+            height: 18px;        
+            vertical-align: middle;    
+            position: relative;
+            margin-right: 8px;
+            background: url('/assets/images/common/check box_default.png') no-repeat left center;
+        }
+        input[type="checkbox"]:checked + label::before {
+            background: url('/assets/images/common/check box_check.png') no-repeat left center;
+            display: inline-block;                        
+        }
+      }
+}

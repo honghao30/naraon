@@ -1,0 +1,7 @@
+<svg data-name="2" xmlns="http://www.w3.org/2000/svg" width="122" height="23" viewBox="0 0 122 23">
+    <text data-name="My orders" transform="translate(37 18)" style="font-size:18px;font-family:Montserrat-Regular,Montserrat;letter-spacing:-.025em;fill:#191919"><tspan x="0" y="0">My orders</tspan></text>
+    <g data-name="icon_My orders">
+        <path data-name="패스 6870" d="M806.821 45.961h3.5l-4.043-4.043v3.5a.545.545 0 0 0 .545.545" transform="translate(-792.458 -39.598)" style="fill:#ccc"/>
+        <path data-name="패스 6871" d="M546.639 38.572A1.639 1.639 0 0 1 545 36.936v-3.818h-7.091a1.639 1.639 0 0 0-1.636 1.636V50.1a1.639 1.639 0 0 0 1.636 1.636h10.911a1.639 1.639 0 0 0 1.636-1.636V38.572z" transform="translate(-532.276 -31.118)" style="fill:#ccc"/>
+    </g>
+</svg>
