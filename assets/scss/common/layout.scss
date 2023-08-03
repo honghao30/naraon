@@ -184,11 +184,100 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 80px;
+    .breadcrumb {
+      ul {
+        display: flex;        
+        li {
+           position: relative;
+           padding:0  25px 0  15px;
+           &::after {
+            content: '';
+            display: block;
+            position: absolute;
+            right:0;
+            top:50%;
+            transform: translateY(-50%);
+            width:9px;
+            height:16px;
+            background: url('../assets/images/common/arrow_nav.png') no-repeat center center;
+           }
+           &:first-child {
+            padding-left: 0;
+           }
+          .home {
+            display: block;
+            width:18px;
+            height:18px;
+            background: url('../assets/images/common/icon_nav_home.png') no-repeat center center;
+          }
+          &.current {
+            padding-right:0;
+            @include fontoption(18px,#191919, bold, 22px);
+            &::after {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+    .util-menu-top {
+      display: flex;
+      gap: 10px;
+      li {
+        height: 46px;
+        padding: 0 15px;
+        border-radius: 30px;
+        border: solid 1px #dbdbdb;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        &.logout {
+          border-radius: 50%;
+          width: 46px;
+          height: 46px;     
+          padding:0;     
+        }
+        .icon-ship-market {
+          display: inline-block;
+          width:18px;
+          height:19px;
+          vertical-align: middle;
+          margin-right:6px;
+          background: url('../assets/images/common/icon_Ship_Stores.png') no-repeat center center;
+        }
+        .icon-service-area {
+          display: inline-block;
+          width:18px;
+          height:19px;
+          vertical-align: middle;
+          margin-right:6px;
+          background: url('../assets/images/common/icon_service.png') no-repeat center center;
+        }      
+        .icon-logout {
+          display: inline-block;
+          width:18px;
+          height:19px;
+          vertical-align: middle;
+          background: url('../assets/images/common/icon_logout.png') no-repeat center center;
+        }              
+      }
+      a {
+        @include fontoption(16px, #191919, 400, 19px);
+        font-family: 'Montserrat';
+      }
+    }
   }  
   .content {
     display: flex;
     flex:1;
     background: url('../assets/images/common/bg_mark.png') no-repeat 70% bottom;
+    padding: 117px 107px 0 53px;
+    h2 {
+      &.page-title {
+        @include fontoption(40px, #191919, bold, 48px);
+      }
+    }
   }
   .footer-info {
     border-top: solid 1px #f1f1f1;
