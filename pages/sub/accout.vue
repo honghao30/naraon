@@ -41,7 +41,20 @@
       </div>
       <!-- // content top -->
       <div class="content">
-        <h2 class="page-title">Account</h2>
+        <div class="title-area">
+          <h2 class="page-title">Account</h2>
+          <div class="btn-wrap">
+            <button type="button" class="btn btn-orange light">
+              <i class="icon-up"></i>
+              Upload Business Cert
+            </button>
+            <button type="button" class="btn btn-orange">
+              <i class="icon-up"></i>
+              File export
+            </button>            
+          </div>
+        </div>
+        
         <div class="cont">
             <ul class="form-list">
               <li>
@@ -55,7 +68,7 @@
               <li>
                 <div class="tit">사업자명</div>
                 <div class="form-content">
-                  <span class="text">
+                  <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
                     >
@@ -68,7 +81,7 @@
               <li>
                 <div class="tit">부서명</div>
                 <div class="form-content">
-                  <span class="text">
+                  <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
                     >
@@ -81,7 +94,7 @@
               <li>
                 <div class="tit">부서명</div>
                 <div class="form-content">
-                  <span class="text">
+                  <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
                     >
@@ -94,7 +107,7 @@
               <li>
                 <div class="tit">직원명</div>
                 <div class="form-content">
-                  <span class="text">
+                  <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
                     >
@@ -115,7 +128,7 @@
               <li>
                 <div class="tit">직원이메일</div>
                 <div class="form-content">
-                  <span class="text">
+                  <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
                     >
@@ -128,7 +141,7 @@
               <li>
                 <div class="tit">직원연락처</div>
                 <div class="form-content">
-                  <span class="text">
+                  <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
                     >
@@ -141,7 +154,7 @@
               <li>
                 <div class="tit">출발지 주소</div>
                 <div class="form-content">
-                  <span class="text">
+                  <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
                     >

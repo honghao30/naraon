@@ -41,7 +41,19 @@
       </div>
       <!-- // content top -->
       <div class="content">
-        <h2 class="page-title">Order History</h2>
+        <div class="title-area">
+          <h2 class="page-title">Order History</h2>
+          <div class="btn-wrap">
+            <button type="button" class="btn btn-orange light">
+              <i class="icon-up"></i>
+              Upload Business Cert
+            </button>
+            <button type="button" class="btn btn-orange">
+              <i class="icon-up"></i>
+              File export
+            </button>            
+          </div>
+        </div>                
         <div class="cont">
 
           <div class="scroll__wrapper">

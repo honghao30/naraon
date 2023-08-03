@@ -86,7 +86,71 @@ body {
         border-radius: 6px;
     }
 }
-
+// button 
+.btn {
+    &.full-wd {
+        display: block !important;
+        width: 100% !important;
+    }
+    .icon-up {
+        display: inline-block;
+        vertical-align: middle;
+        width:16px;
+        height:16px;
+        background: url('../assets/images/common/icon_export.png') no-repeat center;        
+        margin-right: 4px;
+    }
+    .icon-cart {
+        display: inline-block;
+        vertical-align: middle;
+        width:22px;
+        height:22px;
+        background: url('../assets/images/common/icon_cart_22px.png') no-repeat center;        
+        margin-right: 4px;
+    }
+    &.btn-orange {
+        min-width: 133px;
+        height: 46px;        
+        padding: 0 20px;
+        border-radius: 5px;
+        background-color: #f69d00;
+        @include fontoption(15px, #fff, normal, 18px);
+        &.light {
+            background-color: #f8ba4c;
+        }
+        &.size-large {
+            height:60px;
+        }
+    }
+    &.btn-line {
+        width: 144px;
+        height: 50px;                
+        border-radius: 5px;
+        border: solid 1px #f69d00;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include fontoption(15px, #f69d00, normal, 18px);
+    }
+    &.btn-line-gray {
+        display: inline-block;
+        width: 130px;
+        height: 50px;
+        border-radius: 5px;
+        border: solid 1px #505050;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include fontoption(15px, #505050, normal, 18px);
+    }
+    &.btn-gray {        
+        height: 60px;        
+        padding: 0px 40px;
+        border-radius: 5px;
+        background-color: #bbb;
+        @include fontoption(18px, #fff, normal, 24px);
+    }
+}
 // checkbox
 .checkbox {
     input[type="checkbox"]{

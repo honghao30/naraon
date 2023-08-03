@@ -270,15 +270,27 @@ body {
   }  
   .content {
     display: flex;
+    flex-direction: column;
     flex:1;
     background: url('../assets/images/common/bg_mark.png') no-repeat 70% bottom;
     padding: 117px 107px 0 53px;
-    h2 {
-      &.page-title {
+    .title-area {
+      display: flex;
+      justify-content: space-between;
+      .page-title {
         @include fontoption(40px, #191919, bold, 48px);
       }
+      .btn-wrap {
+        display: flex;
+        justify-content: flex-end;
+        gap: 10px;
+      }
+    }
+    .cont {
+      padding-top: 50px;
     }
   }
+  // content
   .footer-info {
     border-top: solid 1px #f1f1f1;
     height: 117px;
@@ -293,7 +305,7 @@ body {
       align-items: center;      
       li {
         position: relative;
-        padding: 0 10px;
+        padding: 0 15px;
         &::after {
           content: '';
           position: absolute;
@@ -314,5 +326,124 @@ body {
       margin-top: 10px;
       @include fontoption(14px,#ccc,400, 16px);
     }
+  }
+}
+// form 
+.form-list__wrap {
+  width: 100%;
+  max-width: 700px;
+}
+.form-list {
+  width: 100%;  
+  li {
+    display: flex;    
+    padding:5px 0px;
+    &+li {
+      margin-top:5px;
+    }
+    .tit {
+      @include fontoption(16px,#191919,bold, 19px);
+      width: 220px;
+      padding-top: 11px;
+    }
+    .form-content {
+      width: calc(100% - 150px);
+      text-align: left;
+      display: flex;
+      justify-content: flex-start;
+      &.mullt {
+        flex-direction: column;
+        align-items: center;        
+        gap:15px;
+      }
+      .form-rows {
+        text-align: left;
+        display: flex;
+        justify-content: flex-start;
+        width: 100%;
+        &.item5 {
+          justify-content: space-between;
+          gap:10px;
+        }
+      }
+      .selectbox {
+        &::after {
+          content: '';
+          display: block;
+          position: absolute;
+          width:14px;
+          height:7px;
+          right: 10px;
+          top: 50%;
+          transform: translateY(-50%);
+          background: url('../assets/images/common/icon_arrow_selectbox.png') no-repeat center;
+        }        
+      }
+      .selectbox,
+      .text {
+        width: 100%;        
+        height: 50px;                
+        border-radius: 5px;
+        border: solid 1px #dbdbdb;      
+        position: relative;
+        overflow: hidden;
+        &.has-btn {
+          input {
+            width: calc(100% - 60px);
+          }
+        }
+        &.fileup {          
+          display: flex;
+          justify-content: space-between;
+          align-items: center;               
+          width: calc(100% - 140px);      
+          margin-right:10px;
+          input[type="file"] {
+            opacity: 0;
+          }  
+        }
+        input[type="text"],
+        input[type="file"] {
+          width: 100%;
+          height: 100%;
+          text-indent: 10px;      
+          background-color: transparent;
+          border:0;    
+          @include fontoption(16px,#191919,bold, 19px);
+        } 
+        select {
+          width: 100%;
+          height: 100%;
+          text-indent: 10px;      
+          background-color: transparent;
+          border:0;    
+          @include fontoption(16px,#191919,bold, 19px);  
+          appearance: none;
+          -moz-appearance: none;          
+          -webkit-appearance: none;       
+        }
+        .btn-modify {
+          position: absolute;
+          right:5px;
+          top:50%;
+          transform: translateY(-50%);
+          i {
+            display: block;
+            width:22px;
+            height:22px;
+            background: url('../assets/images/common/icon_Edit.png') no-repeat center;
+          }
+        }
+      }
+    }
+  }
+}
+.button-wrap {
+  display: flex;
+  align-items: center;
+  margin-top:40px;
+  gap:10px;
+  &.flex-end {
+    justify-content: flex-end;
   }
 }
