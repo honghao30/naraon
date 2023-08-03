@@ -288,6 +288,8 @@ body {
     }
     .cont {
       padding-top: 50px;
+      width: 100%;
+      max-width: 90%;
     }
   }
   // content
@@ -327,6 +329,10 @@ body {
       @include fontoption(14px,#ccc,400, 16px);
     }
   }
+}
+.sub-title {
+  @include fontoption(24px, #191919, bold, 29px);
+  margin-bottom:20px;
 }
 // form 
 .form-list__wrap {
@@ -446,4 +452,9 @@ body {
   &.flex-end {
     justify-content: flex-end;
   }
+}
+
+.scroll__wrapper {
+  position: relative;
+  width: 100%;
 }
