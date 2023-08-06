@@ -1,15 +1,5 @@
 <template>
-  <div class="content-top">   
-    <div class="mo-head">
-      <button type="button" class="btn-mobile">
-        <span class="bar"></span>
-        <span class="bar"></span>
-        <span class="bar"></span>
-      </button>
-      <div class="mo-logo">
-        <img src="../../assets/images/common/logo_c.png" alt="">
-      </div>          
-    </div>               
+  <div class="content-top">                  
     <div class="breadcrumb">
       <ul>
         <li>
@@ -35,7 +25,8 @@
 
 <script>
 export default {
-
+  methods: {
+  }
 }
 </script>
 

@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <Nay />
+    <Nay @mobile-navy="handleMobileNavy" />
     <div class="contents-wrap">
       <HeaderCmp />
       <!-- // content top -->
@@ -278,7 +278,17 @@ export default {
     },
     modalView () {
       this.isModalViewed = true
-    }    
+    },
+    handleMobileNavy() {
+      // 이벤트 수신 시 실행할 로직을 작성합니다.
+      console.log('Mobile navy event received from child component');
+      // 다른 형제 요소에 이벤트를 전달할 수 있습니다.
+      // ...
+    },
+    MobileNavyOpen() {
+      // @mobile-navy 이벤트를 처리할 메소드를 추가합니다.
+      console.log('Mobile navy event received in parent component');
+    },   
   }
 }
 </script>

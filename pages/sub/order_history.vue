@@ -1,44 +1,8 @@
 <template>
   <div class="wrap">
-    <div class="left-side-wrap">
-      <div class="logo">
-        <h1>
-          <nuxt-link to="/">
-            <img src="../../assets/images/common/logo_c.png" alt="">
-          </nuxt-link>
-        </h1>
-      </div>   
-      <!-- // logo    -->
-      <ul class="lnb">
-        <li><nuxt-link to="">Home</nuxt-link></li>
-        <li><nuxt-link to="">Booking</nuxt-link></li>
-        <li><nuxt-link to="">My orders</nuxt-link></li>
-        <li><nuxt-link to="">Account</nuxt-link></li>
-      </ul>
-    </div>
+    <Nay />
     <div class="contents-wrap">
-      <div class="content-top">
-        <div class="breadcrumb">
-          <ul>
-            <li>
-              <span class="home"></span>
-            </li>
-            <li class="current">Order History</li>
-          </ul>
-        </div>
-        <!-- // 현재 위치 -->
-        <ul class="util-menu-top">
-          <li>
-            <nuxt-link to="#"><i class="icon-ship-market"></i> Ship Stores Market</nuxt-link>
-            </li>
-            <li>
-            <nuxt-link to="#"><i class="icon-service-area"></i> Service Areas</nuxt-link>
-            </li>      
-            <li class="logout">
-            <nuxt-link to="#"><i class="icon-logout"></i> </nuxt-link>
-            </li>                 
-        </ul>
-      </div>
+      <HeaderCmp />
       <!-- // content top -->
       <div class="content">
         <div class="title-area">
@@ -62,7 +26,7 @@
                 <el-table-column label="기본정보" fixed="left">
                   <el-table-column prop="num" label="이용번호" width="100" />
                   <el-table-column prop="orderDate" label="주문일시" width="120" />
-                  <el-table-column prop="company" label="사업자명" width="100" />
+                  <el-table-column prop="company" label="사업자명" width="160" />
                 </el-table-column>
                 <el-table-column prop="part" label="부서명" width="180" />
                 <el-table-column prop="Name" label="직원명" width="180" />
@@ -107,180 +71,217 @@
     </div>
   </div>
 </template>
+<script>
+import Nay from '@/components/Nav.vue'
+import HeaderCmp from '@/components/Header.vue'
 
-<script lang="ts" setup>
-  const tableData = [
-    {
-      num: '1',
-      orderDate: '2023-07-01',
-      state: 'California',
-      company: 'Los Angeles',      
-      part: 'Busan',
-      Name: 'hong gildong',
-      porsonId: 'abcd',
-      email: 'abcde@naver.com',
-      tell: '010-7588-5555',
-      port2: 'Busan',
-      ship: '',
-      portArea: '',
-      shiptype: '',
-      data2: '',
-      tell2: '031-555-5898',
-      product: 'HandBag',
-      counter: '1',
-      unit: '2',
-      weit: '10kg',
-      plusPrice: '2,300',
-      address: '경기도 평택시',
-      flyTime: '',
-      flyTime2: '',
-      status: '',
-      discount: '',
-      fileUp: ''
-    },
-    {
-      num: '1',
-      orderDate: '2023-07-01',
-      state: 'California',
-      company: 'Los Angeles',      
-      part: 'Busan',
-      Name: 'hong gildong',
-      porsonId: 'abcd',
-      email: 'abcde@naver.com',
-      tell: '010-7588-5555',
-      port2: 'Busan',
-      ship: '',
-      portArea: '',
-      shiptype: '',
-      data2: '',
-      tell2: '031-555-5898',
-      product: 'HandBag',
-      counter: '1',
-      unit: '2',
-      weit: '10kg',
-      plusPrice: '2,300',
-      address: '경기도 평택시',
-      flyTime: '',
-      flyTime2: '',
-      status: '',
-      discount: '',
-      fileUp: ''
-    },
-    {
-      num: '1',
-      orderDate: '2023-07-01',
-      state: 'California',
-      company: 'Los Angeles',      
-      part: 'Busan',
-      Name: 'hong gildong',
-      porsonId: 'abcd',
-      email: 'abcde@naver.com',
-      tell: '010-7588-5555',
-      port2: 'Busan',
-      ship: '',
-      portArea: '',
-      shiptype: '',
-      data2: '',
-      tell2: '031-555-5898',
-      product: 'HandBag',
-      counter: '1',
-      unit: '2',
-      weit: '10kg',
-      plusPrice: '2,300',
-      address: '경기도 평택시',
-      flyTime: '',
-      flyTime2: '',
-      status: '',
-      discount: '',
-      fileUp: ''
-    },
-    {
-      num: '1',
-      orderDate: '2023-07-01',
-      state: 'California',
-      company: 'Los Angeles',      
-      part: 'Busan',
-      Name: 'hong gildong',
-      porsonId: 'abcd',
-      email: 'abcde@naver.com',
-      tell: '010-7588-5555',
-      port2: 'Busan',
-      ship: '',
-      portArea: '',
-      shiptype: '',
-      data2: '',
-      tell2: '031-555-5898',
-      product: 'HandBag',
-      counter: '1',
-      unit: '2',
-      weit: '10kg',
-      plusPrice: '2,300',
-      address: '경기도 평택시',
-      flyTime: '',
-      flyTime2: '',
-      status: '',
-      discount: '',
-      fileUp: ''
-    },
-    {
-      num: '1',
-      orderDate: '2023-07-01',
-      state: 'California',
-      company: 'Los Angeles',      
-      part: 'Busan',
-      Name: 'hong gildong',
-      porsonId: 'abcd',
-      email: 'abcde@naver.com',
-      tell: '010-7588-5555',
-      port2: 'Busan',
-      ship: '',
-      portArea: '',
-      shiptype: '',
-      data2: '',
-      tell2: '031-555-5898',
-      product: 'HandBag',
-      counter: '1',
-      unit: '2',
-      weit: '10kg',
-      plusPrice: '2,300',
-      address: '경기도 평택시',
-      flyTime: '',
-      flyTime2: '',
-      status: '',
-      discount: '',
-      fileUp: ''
-    },
-    {
-      num: '1',
-      orderDate: '2023-07-01',
-      state: 'California',
-      company: 'Los Angeles',      
-      part: 'Busan',
-      Name: 'hong gildong',
-      porsonId: 'abcd',
-      email: 'abcde@naver.com',
-      tell: '010-7588-5555',
-      port2: 'Busan',
-      ship: '',
-      portArea: '',
-      shiptype: '',
-      data2: '',
-      tell2: '031-555-5898',
-      product: 'HandBag',
-      counter: '1',
-      unit: '2',
-      weit: '10kg',
-      plusPrice: '2,300',
-      address: '경기도 평택시',
-      flyTime: '',
-      flyTime2: '',
-      status: '',
-      discount: '',
-      fileUp: ''
-    }              
-  ]
+export default {
+  components: { Nay, HeaderCmp },
+  data() {
+    return {
+      tableData: [
+      {
+        num: '1',
+        orderDate: '2023-07-01',
+        state: 'California',
+        company: 'Los Angeles',      
+        part: 'Busan',
+        Name: 'hong gildong',
+        porsonId: 'abcd',
+        email: 'abcde@naver.com',
+        tell: '010-7588-5555',
+        port2: 'Busan',
+        ship: '',
+        portArea: '',
+        shiptype: '',
+        data2: '',
+        tell2: '031-555-5898',
+        product: 'HandBag',
+        counter: '1',
+        unit: '2',
+        weit: '10kg',
+        plusPrice: '2,300',
+        address: '경기도 평택시',
+        flyTime: '',
+        flyTime2: '',
+        status: '',
+        discount: '',
+        fileUp: ''
+      },
+      {
+        num: '1',
+        orderDate: '2023-07-01',
+        state: 'California',
+        company: 'Los Angeles',      
+        part: 'Busan',
+        Name: 'hong gildong',
+        porsonId: 'abcd',
+        email: 'abcde@naver.com',
+        tell: '010-7588-5555',
+        port2: 'Busan',
+        ship: '',
+        portArea: '',
+        shiptype: '',
+        data2: '',
+        tell2: '031-555-5898',
+        product: 'HandBag',
+        counter: '1',
+        unit: '2',
+        weit: '10kg',
+        plusPrice: '2,300',
+        address: '경기도 평택시',
+        flyTime: '',
+        flyTime2: '',
+        status: '',
+        discount: '',
+        fileUp: ''
+      },
+      {
+        num: '1',
+        orderDate: '2023-07-01',
+        state: 'California',
+        company: 'Los Angeles',      
+        part: 'Busan',
+        Name: 'hong gildong',
+        porsonId: 'abcd',
+        email: 'abcde@naver.com',
+        tell: '010-7588-5555',
+        port2: 'Busan',
+        ship: '',
+        portArea: '',
+        shiptype: '',
+        data2: '',
+        tell2: '031-555-5898',
+        product: 'HandBag',
+        counter: '1',
+        unit: '2',
+        weit: '10kg',
+        plusPrice: '2,300',
+        address: '경기도 평택시',
+        flyTime: '',
+        flyTime2: '',
+        status: '',
+        discount: '',
+        fileUp: ''
+      },
+      {
+        num: '1',
+        orderDate: '2023-07-01',
+        state: 'California',
+        company: 'Los Angeles',      
+        part: 'Busan',
+        Name: 'hong gildong',
+        porsonId: 'abcd',
+        email: 'abcde@naver.com',
+        tell: '010-7588-5555',
+        port2: 'Busan',
+        ship: '',
+        portArea: '',
+        shiptype: '',
+        data2: '',
+        tell2: '031-555-5898',
+        product: 'HandBag',
+        counter: '1',
+        unit: '2',
+        weit: '10kg',
+        plusPrice: '2,300',
+        address: '경기도 평택시',
+        flyTime: '',
+        flyTime2: '',
+        status: '',
+        discount: '',
+        fileUp: ''
+      },
+      {
+        num: '1',
+        orderDate: '2023-07-01',
+        state: 'California',
+        company: 'Los Angeles',      
+        part: 'Busan',
+        Name: 'hong gildong',
+        porsonId: 'abcd',
+        email: 'abcde@naver.com',
+        tell: '010-7588-5555',
+        port2: 'Busan',
+        ship: '',
+        portArea: '',
+        shiptype: '',
+        data2: '',
+        tell2: '031-555-5898',
+        product: 'HandBag',
+        counter: '1',
+        unit: '2',
+        weit: '10kg',
+        plusPrice: '2,300',
+        address: '경기도 평택시',
+        flyTime: '',
+        flyTime2: '',
+        status: '',
+        discount: '',
+        fileUp: ''
+      },
+      {
+        num: '1',
+        orderDate: '2023-07-01',
+        state: 'California',
+        company: 'Los Angeles',      
+        part: 'Busan',
+        Name: 'hong gildong',
+        porsonId: 'abcd',
+        email: 'abcde@naver.com',
+        tell: '010-7588-5555',
+        port2: 'Busan',
+        ship: '',
+        portArea: '',
+        shiptype: '',
+        data2: '',
+        tell2: '031-555-5898',
+        product: 'HandBag',
+        counter: '1',
+        unit: '2',
+        weit: '10kg',
+        plusPrice: '2,300',
+        address: '경기도 평택시',
+        flyTime: '',
+        flyTime2: '',
+        status: '',
+        discount: '',
+        fileUp: ''
+      }              
+    ]
+    }
+  },
+  mounted () {
+    console.log(this.$route.path)
+  }
+}
 </script>
 
 <style>
+.el-table thead.is-group th.el-table__cell { 
+  background-color: #f7f7f7;
+  border: solid 1px #f1f1f1;
+  height:35px;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.19;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #999;
+}
+.el-table--enable-row-transition .el-table__body td.el-table__cell {
+  height:60px;
+  border: solid 1px #f1f1f1;
+  font-family: Pretendard;
+  font-size: 16px;
+  font-weight: normal;
+  line-height: 1.19;
+  letter-spacing: -0.4px;
+  text-align: left;
+  color: #191919;
+  }
+  .el-table__body tr.hover-row.current-row>td.el-table__cell,.el-table__body tr.hover-row.el-table__row--striped.current-row>td.el-table__cell,
+  .el-table__body tr.hover-row.el-table__row--striped>td.el-table__cell,.el-table__body tr.hover-row>td.el-table__cell {
+    background-color: rgb(246, 157, 0,0.08);color:#f69d00;}
 
 </style>

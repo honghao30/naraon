@@ -1,6 +1,6 @@
 <template>
   <div class="wrap">
-    <Nay />
+    <Nay @mobile-navy="handleMobileNavy" />
     <div class="contents-wrap">
       <HeaderCmp />
       <!-- // content top -->
@@ -140,7 +140,7 @@
             </ul>
         </div>
       </div>
-      <div class="footer-info ">
+      <div class="footer-info">
         <ul class="footer-util-menu">
           <li><nuxt-link to="">Privacy Terms</nuxt-link></li>
           <li><nuxt-link to="">Contact us</nuxt-link></li>
@@ -185,6 +185,9 @@ export default {
   methods: {
     toggleMode(inputName) {
       this.editMode[inputName] = false;
+    },
+    handleMobileNavy () {
+      alert('수신 완료')
     }
   }
 }
