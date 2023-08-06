@@ -1,44 +1,8 @@
 <template>
   <div class="wrap">
-    <div class="left-side-wrap">
-      <div class="logo">
-        <h1>
-          <nuxt-link to="/">
-            <img src="../../assets/images/common/logo_c.png" alt="">
-          </nuxt-link>
-        </h1>
-      </div>   
-      <!-- // logo    -->
-      <ul class="lnb">
-        <li><nuxt-link to="">Home</nuxt-link></li>
-        <li><nuxt-link to="">Booking</nuxt-link></li>
-        <li><nuxt-link to="">My orders</nuxt-link></li>
-        <li><nuxt-link to="">Account</nuxt-link></li>
-      </ul>
-    </div>
+    <Nay />
     <div class="contents-wrap">
-      <div class="content-top">
-        <div class="breadcrumb">
-          <ul>
-            <li>
-              <span class="home"></span>
-            </li>
-            <li class="current">Account</li>
-          </ul>
-        </div>
-        <!-- // 현재 위치 -->
-        <ul class="util-menu-top">
-          <li>
-            <nuxt-link to="#"><i class="icon-ship-market"></i> Ship Stores Market</nuxt-link>
-            </li>
-            <li>
-            <nuxt-link to="#"><i class="icon-service-area"></i> Service Areas</nuxt-link>
-            </li>      
-            <li class="logout">
-            <nuxt-link to="#"><i class="icon-logout"></i> </nuxt-link>
-            </li>                 
-        </ul>
-      </div>
+      <HeaderCmp />
       <!-- // content top -->
       <div class="content">
         <div class="title-area">
@@ -61,7 +25,7 @@
                 <div class="tit">회원가입일</div>
                 <div class="form-content">
                   <span class="text">
-                    <input type="text"  name="">
+                    <input type="text" :disabled="disabled" v-model="joinDate" name="">
                   </span>
                 </div>
               </li>
@@ -71,10 +35,11 @@
                   <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
+                      @click="toggleMode('companyName')"
                     >
                       <i></i>
                     </button>
-                    <input type="text"  name="">
+                    <input type="text" :disabled="editMode['companyName']" v-model="companyName" name="">
                   </span>
                 </div>
               </li>
@@ -84,23 +49,11 @@
                   <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
+                      @click="toggleMode('partName')"
                     >
                       <i></i>
                     </button>
-                    <input type="text"  name="">
-                  </span>
-                </div>
-              </li>
-              <li>
-                <div class="tit">부서명</div>
-                <div class="form-content">
-                  <span class="text has-btn">
-                    <button type="button"
-                      class="btn-modify"
-                    >
-                      <i></i>
-                    </button>
-                    <input type="text"  name="">
+                    <input type="text" :disabled="editMode['partName']"  v-model="partName" name="">
                   </span>
                 </div>
               </li>
@@ -110,10 +63,11 @@
                   <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
+                      @click="toggleMode('staffName')"
                     >
                       <i></i>
                     </button>
-                    <input type="text"  name="">
+                    <input type="text"  :disabled="editMode['staffName']"  v-model="staffName"  name="">
                   </span>
                 </div>
               </li>
@@ -121,7 +75,7 @@
                 <div class="tit">직원ID</div>
                 <div class="form-content">
                   <span class="text">
-                    <input type="text" name="">
+                    <input type="text" :disabled="editMode['staffId']"  v-model="staffId" name="">
                   </span>
                 </div>
               </li>
@@ -131,10 +85,11 @@
                   <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
+                      @click="toggleMode('email')"
                     >
                       <i></i>
                     </button>
-                    <input type="text"  name="">
+                    <input type="text"  :disabled="editMode['email']" v-model="email"  name="">
                   </span>
                 </div>
               </li>
@@ -144,10 +99,11 @@
                   <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
+                      @click="toggleMode('tell')"
                     >
                       <i></i>
                     </button>
-                    <input type="text"  name="">
+                    <input type="text" :disabled="editMode['tell']"  v-model="tell"  name="">
                   </span>
                 </div>
               </li>              
@@ -157,10 +113,11 @@
                   <span class="text has-btn">
                     <button type="button"
                       class="btn-modify"
+                      @click="toggleMode('address')"
                     >
                       <i></i>
                     </button>
-                    <input type="text"  name="">
+                    <input type="text" :disabled="editMode['address']"  v-model="address"  name="">
                   </span>
                 </div>
               </li>      
@@ -168,7 +125,7 @@
                 <div class="tit">적용 할인율</div>
                 <div class="form-content">
                   <span class="text">
-                    <input type="text" name="">
+                    <input type="text" v-model="disCount" name="">
                   </span>
                 </div>
               </li>  
@@ -198,8 +155,38 @@
 </template>
 
 <script>
-export default {
+import Nay from '@/components/Nav.vue'
+import HeaderCmp from '@/components/Header'
 
+export default {
+  components: { Nay, HeaderCmp },
+  data() {
+    return {
+      editMode: {
+        companyName: true,
+        partName: true,
+        staffName: true,        
+        email: true,
+        tell: true,
+        address: false
+      },
+      joinDate: '2023-07-21',
+      companyName: '주식회사 에코해운',
+      partName: '운영팀',
+      staffName: '홍길동',
+      staffId: 'abcd',      
+      email: 'abcd@naver.com',
+      tell: '031-5555-8888',
+      address: '부산시 영도구 태종로 727, 산학허브관 613호 (ZIP 49112)',
+      disCount: '5%',
+      disabled: true      
+    }
+  },
+  methods: {
+    toggleMode(inputName) {
+      this.editMode[inputName] = false;
+    }
+  }
 }
 </script>
 

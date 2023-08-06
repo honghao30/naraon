@@ -10,15 +10,16 @@
         <dl>
           <dt><label for="id">ID</label></dt>
           <dd>
-            <input type="text" id="id" name="" >
+            <input type="text" id="id" placeholder="ID" v-model="id" name="" >
           </dd>
           <dt><label for="pw">Password</label></dt>
           <dd>
-            <input type="password" id="pw" name="" >
+            <input type="password" id="pw" placeholder="Password" v-model="password" name="" >
           </dd>          
         </dl>
         <button type="button" 
           class="btn btn-login"
+          :disabled='isDisabled'
           @click="goLogin"
         >
           로그인
@@ -31,7 +32,7 @@
           </div>
           <div class="remember">
             <span class="checkbox remember">
-              <input type="checkbox" id="remember" name="remember">
+              <input type="checkbox" id="remember" v-model="remember" name="remember">
               <label for="remember">Remember ID</label>              
             </span>
           </div>
@@ -45,9 +46,22 @@
 
 <script>
 export default {
+  data() {
+    return {
+      id: '',
+      password: '',
+      remember: ''      
+    }
+  },
+  computed: {
+      isDisabled() {
+        // you can  check your form is filled or not here.
+        return this.id == '' || this.password == ''
+      },
+  },
   methods: {
     goLogin () {
-      alert('로그인')
+      this.$router.push('/sub/main')
     }
   }  
 }

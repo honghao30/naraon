@@ -13,8 +13,14 @@ body {
   width: 100%;
   height: 100%;
   display: flex;
+  @media #{$phone} {
+    flex-direction: column;
+  }   
   &.login-page {    
-    justify-content: space-between;    
+    justify-content: space-between;  
+    @media #{$phone} {
+      flex-direction: column;
+    } 
     .login-img {
       height: 100%;
       width: 50%;
@@ -45,7 +51,20 @@ body {
         height: 500px;
         background: url('../assets/images/login/mark_login.svg') no-repeat left bottom;
         background-size: 100% auto;
-      }      
+      }  
+      @media #{$phone} {
+        width: 100%;
+        height: 100px;
+        h1 {
+          img {
+            height: 50px;
+          }
+        }
+        &::before,
+        &::after {
+          display: none;
+        }
+      }     
     }
     .login-container {
       height: 100%;
@@ -54,6 +73,11 @@ body {
       display: flex;
       align-items: center;
       justify-content: center;
+      @media #{$phone} {
+        width: 100%;
+        align-items: flex-start;
+        padding-top: 15%;
+      }  
       .login-inner-wrap {
         max-width: 420px;
         margin:0 auto;
@@ -79,6 +103,23 @@ body {
             }
           }
         }
+        @media #{$phone} {
+          width: 100%;
+          max-width: 85%;
+          h2 {
+            font-size: 25px;
+          }
+          dl {
+            margin-top: 20px;
+            dd {
+              margin-bottom:15px;
+              input {
+                width: 100%;
+                height: 40px;                
+              }
+            }
+          }
+        }          
       }
       .login-bottom {        
         display: flex;
@@ -96,6 +137,15 @@ body {
         border-radius: 5px;
         background-color: #f69d00;
         @include fontoption(16px,#fff,400, 19px);
+        &:disabled {
+          opacity: 0.3;
+          background-color: #191919;
+          cursor: default;
+        }
+        @media #{$phone} {
+          width: 100%;
+          height: 50px;
+        }
       }
     }
   }
@@ -106,6 +156,9 @@ body {
   left:50%;
   transform: translateX(-50%);
   @include fontoption(15px,#999,400, 18px);
+  @media #{$phone} {
+    font-size: 13px;
+  }
 }
 
 // 레이아웃
@@ -118,10 +171,49 @@ body {
   background-color: #fff;  
   .logo {
     padding: 20px 0 0 60px;
+    &.btn-mobile-close {
+      display: none;
+    }
   }
   .lnb {
     margin-top:15px;
     li {
+      &.active {
+       a {
+        background-color: rgb(246, 157, 0,0.1);
+        color:#f69d00;
+        font-weight: 700;
+       } 
+        &:nth-child(1) {
+          a {
+            &::before {
+              background: url('../assets/images/common/icon_home.svg') no-repeat left -2px;
+            }          
+          }
+        }
+        &:nth-child(2) {
+          a {
+            &::before {
+              background: url('../assets/images/common/icon_Booking_on.png') no-repeat left -2px;
+            }          
+          }
+        }
+        &:nth-child(3) {
+          a {
+            &::before {
+              background: url('../assets/images/common/icon_my_orders_on.png') no-repeat left -2px;
+            }          
+          }
+        }
+        &:nth-child(4) {
+          a {
+            &::before {
+              content: '';
+              background: url('../assets/images/common/icon_Account_on.png') no-repeat left -2px;
+            }          
+          }
+        }       
+      }      
       a {
         display: block;
         padding: 25px 60px;
@@ -171,6 +263,41 @@ body {
       }                  
     }
   }
+  @media #{$phone} {
+    position: fixed;
+    top:0;
+    width: 60%;
+    left:-60%;  
+    transition: all 0.3s;  
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0.0);
+    &.active {            
+      background: #fff;
+      height: 100vh;      
+      z-index: 12;
+      left:0;    
+      transition: all 0.3s;
+      .btn-mobile-close {                  
+          display: block;
+          width:35px;
+          position: absolute;
+          right:16px;
+          top:24px;
+          .bar {
+            display: block;
+            width:100%;
+            height:3px;
+            margin: 4px 0;
+            background-color: #191919;
+            &:nth-child(1) {
+              transform: rotate(45deg) translateY(4px);
+            }
+            &:nth-child(2) {
+              transform: rotate(-45deg) translateY(-5px);
+            }
+          }
+      }
+    }
+  }
 }
 // left side 
 .contents-wrap {
@@ -185,6 +312,9 @@ body {
     justify-content: space-between;
     align-items: center;
     padding: 0 80px;
+    .mo-head {
+      display: none;     
+    }
     .breadcrumb {
       ul {
         display: flex;        
@@ -267,6 +397,64 @@ body {
         font-family: 'Montserrat';
       }
     }
+    @media #{$phone} {
+        height: auto;
+        padding: 0px 0px 20px;
+        display: block;
+        .mo-head {          
+          height:80px;
+          display: flex;
+          position: relative;
+          align-items: center;
+          justify-content: center;
+          border-bottom: 1px solid #f1f1f1;
+          .btn-mobile {
+            display: block;
+            width:35px;
+            position: absolute;
+            left:16px;
+            top:24px;
+            .bar {
+              display: block;
+              width:100%;
+              height:3px;
+              margin: 4px 0;
+              background-color: #191919;
+            }
+          }
+          .mo-logo {
+            img {
+              height: 50px;
+            }
+          } 
+        }   
+        .breadcrumb {
+          padding: 15px 16px 0 16px;
+        }    
+        .util-menu-top {
+          position: absolute;
+          right:16px;
+          top:16px;
+          li {
+            width: 35px;
+            height: 35px;  
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;          
+            a {
+              font-size:0;
+              i {
+                margin: 0 !important;
+              }
+            }
+            &.logout {
+              width: 35px;
+              height: 35px;   
+            }
+          }
+        }
+    }
   }  
   .content {
     display: flex;
@@ -289,6 +477,21 @@ body {
     .cont {
       padding-top: 50px;
       width: 100%;      
+      min-height: 900px;
+    }
+    @media #{$phone} {
+      padding: 30px 16px 50px;
+      background-position: right bottom;
+      background-size: 50% auto;
+      .title-area {
+        flex-direction: column;
+        .page-title { 
+          font-size: 25px;
+        }
+      }
+      .cont {
+        padding-top: 30px;
+      }
     }
   }
   // content
@@ -327,19 +530,36 @@ body {
       margin-top: 10px;
       @include fontoption(14px,#ccc,400, 16px);
     }
+    @media #{$phone} {
+      height: auto;
+      padding: 20px 16px;
+      .footer-util-menu { 
+        li {
+          a {font-size: 16px;}
+        }
+      }
+    }
   }
 }
 .sub-title {
   @include fontoption(24px, #191919, bold, 29px);
   margin-bottom:20px;
+  @media #{$phone} {
+    font-size: 20px;
+    line-height: 23px;
+  }
 }
 // form 
 .form-list__wrap {
   width: 100%;
   max-width: 700px;
+  @media #{$phone} {
+    max-width: 100%;
+  }
 }
 .form-list {
   width: 100%;  
+  max-width: 750px;
   li {
     display: flex;    
     padding:5px 0px;
@@ -384,6 +604,77 @@ body {
           background: url('../assets/images/common/icon_arrow_selectbox.png') no-repeat center;
         }        
       }
+      .select-el {
+        width: 100%;
+        .el-select--large {
+          width: 100%;
+          height: 50px;
+          line-height: 50px;
+          border-radius: 5px;
+          @media #{$phone} {
+            height: 40px;
+            line-height: 40px;    
+          }
+        }
+        .el-input {
+          height:50px;
+          line-height: 50px;     
+          @media #{$phone} {
+            height: 40px;
+            line-height: 40px;    
+          }                         
+          // border: solid 1px #dbdbdb;  
+        }
+        .el-input__inner {  
+          @include fontoption(16px,#191919,normal, 19px);   
+          &::placeholder {
+            @include fontoption(16px,#191919,normal, 19px);         
+          }
+        }
+      }
+      .el-time-select {
+        width: 100%;
+        height: 50px;
+        @media #{$phone} {
+          height: 40px;
+          line-height: 40px;    
+        }        
+        .el-date-editor {
+          &.el-input,
+          &.el-input__wrapper {
+            width: 100%;
+            height:50px;
+            line-height: 50px;
+            position: relative;
+            @media #{$phone} {
+              height: 40px;
+              line-height: 40px;    
+            }
+            .el-input__prefix {
+              position: absolute;
+              right:10px;
+              top:15px;
+              width:22px;
+              height:22px;
+              background: url('../assets/images/common/icon_Booking.png') no-repeat;
+              background-position: center;
+              @media #{$phone} {
+                top: 9px;
+              }
+              i {
+                display: none;
+              }
+            }
+            .el-input__inner {
+              @include fontoption(16px,#191919,normal, 19px);    
+              &::placeholder {
+                @include fontoption(16px,#191919,normal, 19px);         
+              } 
+            }
+          }
+        }        
+        
+      }
       .selectbox,
       .text {
         width: 100%;        
@@ -392,6 +683,10 @@ body {
         border: solid 1px #dbdbdb;      
         position: relative;
         overflow: hidden;
+        @media #{$phone} {
+          height: 40px;
+          line-height: 40px;    
+        }
         &.has-btn {
           input {
             width: calc(100% - 60px);
@@ -414,7 +709,7 @@ body {
           text-indent: 10px;      
           background-color: transparent;
           border:0;    
-          @include fontoption(16px,#191919,bold, 19px);
+          @include fontoption(16px,#191919,normal, 19px);
         } 
         select {
           width: 100%;
@@ -422,7 +717,7 @@ body {
           text-indent: 10px;      
           background-color: transparent;
           border:0;    
-          @include fontoption(16px,#191919,bold, 19px);  
+          @include fontoption(16px,#191919,normal, 19px);  
           appearance: none;
           -moz-appearance: none;          
           -webkit-appearance: none;       
@@ -442,6 +737,16 @@ body {
       }
     }
   }
+  @media #{$phone} {
+    max-width: 100%;
+    li {
+      flex-direction: column;
+      .form-content {
+        width: 100%;
+        margin-top:10px;
+      }
+    }
+  }
 }
 .button-wrap {
   display: flex;
@@ -450,6 +755,9 @@ body {
   gap:10px;
   &.flex-end {
     justify-content: flex-end;
+  }
+  @media #{$phone} {
+    padding-top:40px;
   }
 }
 
@@ -465,4 +773,64 @@ body {
     right:0;
     top:0;
   }
+}
+
+// modal 
+.modal__content--inner {
+  width: 100%;
+  max-width: 360px;
+  height: 374px;
+  border-radius: 5px;
+  background-color: #fff;
+  position: fixed;
+  left:50%;
+  top:50%;
+  transform: translate(-50%,-50%);   
+  z-index: 16;
+  .modal__content--body {
+    position: relative;
+    padding: 30px 30px 11px;
+    .msg {
+      width: 100%;
+      text-align: center;
+      @include fontoption(20px,#191919,bold, 30px);  
+      strong {
+        color: #f69d00;
+      }
+      .icon-send {
+        display: block;
+        width: 63px;
+        height:63px;
+        background: url('../assets/images/common/icon_send.png') no-repeat;
+        margin: 30px auto;
+      }
+    }
+    .btn-close {
+      width:24px;
+      height:24px;
+      position: absolute;
+      right:30px;
+      top:30px;
+      background: url('../assets/images/common/icon_close.png') no-repeat;
+    }
+  }
+  .modal__content--footer {
+    padding: 0px 30px;
+    .btn-full {width: 100%;}
+  }
+}
+body.modal-open {
+  height:100%;
+  overflow:hidden;
+}
+.overlay-mask {
+  position: fixed;
+  z-index: 14;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgb(25, 25, 25,0.8);
+  display: table;
+  transition: opacity .1s ease;
 }

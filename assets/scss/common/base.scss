@@ -121,6 +121,12 @@ body {
         &.size-large {
             height:60px;
         }
+        @media #{$phone} {
+          padding: 0 10px; 
+          &.size-large {
+            height:50px;
+          }            
+        }        
     }
     &.btn-line {
         width: 144px;
@@ -131,6 +137,10 @@ body {
         align-items: center;
         justify-content: center;
         @include fontoption(15px, #f69d00, normal, 18px);
+        @media #{$phone} {            
+            height: 40px;  
+            font-size:14px;  
+        }
     }
     &.btn-line-gray {
         display: inline-block;
@@ -142,6 +152,11 @@ body {
         align-items: center;
         justify-content: center;
         @include fontoption(15px, #505050, normal, 18px);
+        @media #{$phone} {
+            width: 120px;
+            height: 40px;  
+            font-size:14px;  
+        }
     }
     &.btn-gray {        
         height: 60px;        
@@ -149,6 +164,12 @@ body {
         border-radius: 5px;
         background-color: #bbb;
         @include fontoption(18px, #fff, normal, 24px);
+        @media #{$phone} {
+            height: 50px;  
+            font-size:14px;  
+            line-height: 20px;
+            padding: 0px 30px;
+        }        
     }
 }
 // checkbox

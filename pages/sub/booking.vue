@@ -1,44 +1,8 @@
 <template>
   <div class="wrap">
-    <div class="left-side-wrap">
-      <div class="logo">
-        <h1>
-          <nuxt-link to="/">
-            <img src="../../assets/images/common/logo_c.png" alt="">
-          </nuxt-link>
-        </h1>
-      </div>   
-      <!-- // logo    -->
-      <ul class="lnb">
-        <li><nuxt-link to="">Home</nuxt-link></li>
-        <li><nuxt-link to="">Booking</nuxt-link></li>
-        <li><nuxt-link to="">My orders</nuxt-link></li>
-        <li><nuxt-link to="">Account</nuxt-link></li>
-      </ul>
-    </div>
+    <Nay />
     <div class="contents-wrap">
-      <div class="content-top">
-        <div class="breadcrumb">
-          <ul>
-            <li>
-              <span class="home"></span>
-            </li>
-            <li class="current">Booking</li>
-          </ul>
-        </div>
-        <!-- // 현재 위치 -->
-        <ul class="util-menu-top">
-          <li>
-            <nuxt-link to="#"><i class="icon-ship-market"></i> Ship Stores Market</nuxt-link>
-            </li>
-            <li>
-            <nuxt-link to="#"><i class="icon-service-area"></i> Service Areas</nuxt-link>
-            </li>      
-            <li class="logout">
-            <nuxt-link to="#"><i class="icon-logout"></i> </nuxt-link>
-            </li>                 
-        </ul>
-      </div>
+      <HeaderCmp />
       <!-- // content top -->
       <div class="content">
         <div class="title-area">
@@ -50,53 +14,73 @@
                 <li>
                   <div class="tit">Port</div>
                   <div class="form-content">
-                    <span class="selectbox">
-                      <select name="">
-                        <option>선택하세요</option>
-                      </select>
+                    <span class="select-el">
+                      <el-select class="m-2" v-model="Port" placeholder="Port을 선택하세요." size="large">
+                        <el-option
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"                        
+                        />
+                      </el-select> 
                     </span>
                   </div>
                 </li>
                 <li>
                   <div class="tit">Vessel Name</div>
                   <div class="form-content">
-                    <span class="selectbox">
-                      <select name="">
-                        <option>선택하세요</option>
-                      </select>
+                    <span class="select-el">
+                      <el-select class="m-2" v-model="VesselName" placeholder="Vessel Name 선택하세요." size="large">
+                        <el-option
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"                        
+                        />
+                      </el-select> 
                     </span>
                   </div>
                 </li>
                 <li>
                   <div class="tit">Anchorage / Berth</div>
                   <div class="form-content">
-                    <span class="selectbox">
-                      <select name="">
-                        <option>선택하세요</option>
-                      </select>
+                    <span class="select-el">
+                      <el-select class="m-2" v-model="AnchorageBerth" placeholder="Anchorage / Berth을 선택하세요." size="large">
+                        <el-option
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"                        
+                        />
+                      </el-select> 
                     </span>
                   </div>
                 </li>
                 <li>
                   <div class="tit">Vessel Type</div>
                   <div class="form-content">
-                    <span class="selectbox">
-                      <select name="">
-                        <option>선택하세요</option>
-                      </select>
+                    <span class="select-el">
+                      <el-select class="m-2" v-model="VesselType" placeholder="Vessel Type을 선택하세요." size="large">
+                        <el-option
+                          v-for="item in options"
+                          :key="item.value"
+                          :label="item.label"
+                          :value="item.value"                        
+                        />                        
+                      </el-select> 
                     </span>
                   </div>
                 </li>
                 <li>
                   <div class="tit">Desired Delivery Time</div>
                   <div class="form-content">
-                    <span class="text">
-                      <button type="button"
-                        class="btn-modify"
-                      >
-                        <i></i>
-                      </button>
-                      <input type="text"  name="">
+                    <span class="el-time-select">
+                      <el-date-picker
+                        v-model="value1"
+                        type="date"
+                        placeholder="Desired Delivery Time을 선택하세요."
+                        :size="size"
+                      />                    
                     </span>
                   </div>
                 </li>
@@ -104,7 +88,7 @@
                   <div class="tit">Vessel contact details</div>
                   <div class="form-content">
                     <span class="text">
-                      <input type="text" name="">
+                      <input type="text" v-model="Vcd" placeholder="Vessel contact details을 입력하세요." name="">
                     </span>
                   </div>
                 </li>
@@ -113,32 +97,44 @@
                   <div class="form-content mullt">
                     <div class="form-rows">
                       <span class="text">
-                        <input type="text"  name="">
+                        <input type="text" v-model="ParcelDetails" placeholder="Parcel details을 입력하세요."  name="">
                       </span>
                     </div>
-                    <div class="form-rows item5">
+                    <div class="form-rows item5"  v-for="(info, index) in ParcelDetailsInfo" :key="index">
                       <span class="text">
-                        <input type="text"  name="">
+                        <input type="text" v-model="info.Parcel1"  name="">
                       </span>
-                      <span class="selectbox">
-                        <select name="">
-                          <option>선택하세요</option>
-                        </select>
+                      <span class="select-el">
+                        <el-select class="m-2" v-model="info.Parcel2" placeholder="선택" size="large">
+                          <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value"                        
+                          />                          
+                        </el-select> 
                       </span>
                       <span class="text">
-                        <input type="text"  name="">
+                        <input type="text" v-model="info.Parcel3"  name="">
                       </span>
                       <span class="text">
-                        <input type="text"  name="">
+                        <input type="text" v-model="info.Parcel4"  name="">
                       </span>                      
-                      <span class="selectbox">
-                        <select name="">
-                          <option>선택하세요</option>
-                        </select>
-                      </span> 
+                      <span class="select-el">
+                        <el-select class="m-2" v-model="info.Parcel5"  placeholder="선택" size="large">
+                          <el-option
+                            v-for="item in options"
+                            :key="item.value"
+                            :label="item.label"
+                            :value="item.value"                        
+                          />                          
+                        </el-select> 
+                      </span>
                     </div>
                     <div class="form-rows">
-                      <button type="button" class="btn btn-line-gray full-wd">
+                      <button type="button" class="btn btn-line-gray full-wd"
+                        @click="addItem"
+                      >
                         + Add
                       </button>
                     </div>
@@ -153,10 +149,10 @@
                   <div class="tit">Upload docs</div>
                   <div class="form-content">                  
                     <span class="text fileup">
-                      <input type="text" name="">
-                      <input type="file" id="upfile" name="">
+                      <input type="text" v-model="UploadDoc" name="">
+                      <input type="file" id="file" @change="FileUpload" name="">
                     </span>
-                    <label for="upfile"
+                    <label for="file"
                         class="btn btn-line-gray"
                       >
                         Upload docs
@@ -167,7 +163,7 @@
               <div class="button-wrap flex-end">
                 <button type="button" class="btn btn-gray">save</button>
                 <button type="button" class="btn btn-gray">Calculate</button>
-                <button type="button" class="btn btn-orange size-large">Place Order</button>
+                <button type="button" class="btn btn-orange size-large"  @click="modalView">Place Order</button>
               </div>
             </div>
         </div>
@@ -183,12 +179,107 @@
         </div>
       </div>
     </div>
+   <!-- 모달    -->
+   <ModalView
+      v-if="isModalViewed" @closeModal="isModalViewed = false"
+    >
+      <ConfirmMsg
+        @closeModal="isModalViewed = false">
+        <template v-slot:msg>
+          <div class="msg">
+            <i class="icon-send"></i>
+            Would you like to send the<br>
+            booking information<br>
+            to <strong>NARAON</strong> team?
+          </div>
+        </template>        
+        <template v-slot:button>
+          <div class="button-wrap">
+            <button type="button" class="btn btn-orange btn-full">Send</button>
+          </div>
+      </template>
+      </ConfirmMsg>
+    </ModalView>   
   </div>
 </template>
 
 <script>
-export default {
+import Nay from '@/components/Nav.vue'
+import HeaderCmp from '@/components/Header'
+import ModalView from '@/components/ModalView.vue'
+import ConfirmMsg from '@/components/ConfirmMsg.vue'
 
+export default {
+  components: { Nay, HeaderCmp, ModalView, ConfirmMsg },
+  data() {
+    return {
+      Port: '',
+      VesselName: '',
+      AnchorageBerth: '',
+      VesselType: '',
+      DDtime: '',
+      Vcd: '',
+      ParcelDetails: '',
+      ParcelDetailsInfo: [
+        {
+          Parcel1: '5',
+          Parcel2: '',
+          Parcel3: '',
+          Parcel4: '',
+          Parcel5: ''
+        }
+      ],
+      UploadDoc: '',
+      isModalViewed: false,
+      dialogVisible: false,
+      options: [
+        {
+          value: 'Option1',
+          label: 'Option1',
+        },
+        {
+          value: 'Option2',
+          label: 'Option2',
+        },
+        {
+          value: 'Option3',
+          label: 'Option3',
+        },
+        {
+          value: 'Option4',
+          label: 'Option4',
+        },
+        {
+          value: 'Option5',
+          label: 'Option5',
+        },
+      ]        
+    }
+  },
+  methods: {
+    FileUpload(event) {
+      const file = event.target.files[0];
+      this.UploadDoc = file ? file.name : ''; 
+    },
+    addItem () {
+      console.log(this.ParcelDetailsInfo)
+      if (this.ParcelDetailsInfo.length < 10) {
+        this.ParcelDetailsInfo.push({
+          Parcel1: '',
+          Parcel2: '',
+          Parcel3: '',
+          Parcel4: '',
+          Parcel5: '',
+        });
+      }      
+    },
+    handleClose () {
+      console.log('모달')
+    },
+    modalView () {
+      this.isModalViewed = true
+    }    
+  }
 }
 </script>
 

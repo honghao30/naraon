@@ -1,47 +1,16 @@
 <template>
   <div class="wrap">
-    <div class="left-side-wrap">
-      <div class="logo">
-        <h1>
-          <nuxt-link to="/">
-            <img src="../../assets/images/common/logo_c.png" alt="">
-          </nuxt-link>
-        </h1>
-      </div>   
-      <!-- // logo    -->
-      <ul class="lnb">
-        <li><nuxt-link to="">Home</nuxt-link></li>
-        <li><nuxt-link to="">Booking</nuxt-link></li>
-        <li><nuxt-link to="">My orders</nuxt-link></li>
-        <li><nuxt-link to="">Account</nuxt-link></li>
-      </ul>
-    </div>
+    <Nay />
     <div class="contents-wrap">
-      <div class="content-top">
-        <div class="breadcrumb">
-          <ul>
-            <li>
-              <span class="home"></span>
-            </li>
-            <li class="current">Booking</li>
-          </ul>
-        </div>
-        <!-- // 현재 위치 -->
-        <ul class="util-menu-top">
-          <li>
-            <nuxt-link to="#"><i class="icon-ship-market"></i> Ship Stores Market</nuxt-link>
-            </li>
-            <li>
-            <nuxt-link to="#"><i class="icon-service-area"></i> Service Areas</nuxt-link>
-            </li>      
-            <li class="logout">
-            <nuxt-link to="#"><i class="icon-logout"></i> </nuxt-link>
-            </li>                 
-        </ul>
-      </div>
+      <HeaderCmp />
       <!-- // content top -->
       <div class="content">
-        <h2 class="page-title">Booking</h2>
+        <div class="title-area">
+          <h2 class="page-title">Dash Board</h2>
+        </div>   
+        <div class="cont">
+
+        </div>             
       </div>
       <div class="footer-info ">
         <ul class="footer-util-menu">
@@ -58,7 +27,10 @@
 </template>
 
 <script>
+import Nay from '@/components/Nav.vue'
+import HeaderCmp from '@/components/Header'
 export default {
+  components: { Nay, HeaderCmp }
 
 }
 </script>
