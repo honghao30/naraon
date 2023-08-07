@@ -50,6 +50,23 @@
                 <el-table-column prop="status" label="배송상태" width="100" />
                 <el-table-column prop="discount" label="할인적용율" width="100" />
                 <el-table-column prop="fileUp" label="서류 업로드" width="100" />
+                <el-table-column width="30" class="triger-button-wrap">
+                    <el-dropdown trigger="click">
+                      <span class="el-dropdown-link btn-more-dot">
+                        <el-icon class="el-icon--right"><arrow-down /></el-icon>
+                      </span>
+                      <template #dropdown>
+                        <el-dropdown-menu>
+                          <el-dropdown-item>사업자명 수정</el-dropdown-item>
+                          <el-dropdown-item>부서명 수정</el-dropdown-item>
+                          <el-dropdown-item>직원명 수정</el-dropdown-item>
+                          <el-dropdown-item>직원명 수정</el-dropdown-item>
+                          <el-dropdown-item>직원 연락처 수정</el-dropdown-item>
+                          <el-dropdown-item>출발지 주소 수정</el-dropdown-item>
+                        </el-dropdown-menu>
+                      </template>
+                    </el-dropdown> 
+                </el-table-column>
               </el-table>          
             </div>
           </div>
@@ -283,5 +300,9 @@ export default {
   .el-table__body tr.hover-row.current-row>td.el-table__cell,.el-table__body tr.hover-row.el-table__row--striped.current-row>td.el-table__cell,
   .el-table__body tr.hover-row.el-table__row--striped>td.el-table__cell,.el-table__body tr.hover-row>td.el-table__cell {
     background-color: rgb(246, 157, 0,0.08);color:#f69d00;}
-
+.el-dropdown-menu__item:not(.is-disabled):focus {
+    background-color: #fff;
+    color: #f69d00;
+}
+.triger-button-wrap .cell {text-align: center;}
 </style>

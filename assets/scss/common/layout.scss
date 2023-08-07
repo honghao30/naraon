@@ -811,7 +811,7 @@ body {
 .scroll__wrapper {
   position: relative;
   width: 100%;
-  height: 300px;
+  height: 500px;
   display: block;
   .scroll-table__inner {
     position: absolute;
@@ -879,4 +879,58 @@ body.modal-open {
   background-color: rgb(25, 25, 25,0.8);
   display: table;
   transition: opacity .1s ease;
+}
+.el-dropdown-link {
+  &.btn-more-dot {
+    width:4px;
+    height:20px;
+    background: url('../assets/images/common/icon_kebabmenu_de.png') no-repeat center center;
+    &:hover,
+    &.active {      
+      background: url('../assets/images/common/icon_kebabmenu_de_on.png') no-repeat center center;
+    }
+  }
+}
+.drop-menu {
+  position: relative;
+  .btn-more-dot {
+    width:4px;
+    height:20px;
+    background: url('../assets/images/common/icon_kebabmenu_de.png') no-repeat center center;
+    &:hover,
+    &.active {      
+      background: url('../assets/images/common/icon_kebabmenu_de_on.png') no-repeat center center;
+    }
+  }
+  .el-dropdown-menu__item {
+    font-family: Pretendard;
+    font-size: 16px;
+    font-weight: normal;
+    font-stretch: normal;
+    font-style: normal;
+    line-height: normal;
+    letter-spacing: -0.4px;
+    text-align: left;
+    color: #191919;
+    &:hover,
+    &:focus {
+      color:#f69d00 !important;
+      background-color: transparent !important;
+    }
+  }
+  // .el-dropdown-menu__item:not(.is-disabled):focus {{
+  //   color:#f69d00 !important;
+  //   background-color: transparent !important;
+  // }
+  .quck-list-menu {
+    position: absolute;
+    right: 10px;
+    top:20px;
+    width: 171.3px;        
+    padding: 20px 5.3px 20px 20px;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px 0 rgba(0, 0, 0, 0.16);
+    border: solid 1px #dbdbdb;
+    background-color: #fff;
+  }
 }
